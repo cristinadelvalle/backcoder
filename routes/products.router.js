@@ -34,8 +34,8 @@ productsRouter.get('/:pid', async(req, res)=>{
 
 productsRouter.post('/', async(req, res)=>{
     try {
-        const[title, description, price, code, thumbnail, stock] = req.body
-        const response = await productManager.addProduct({title, description, price, code, thumbnail, stock});
+        const[title, description, price, code, status = true , thumbnail, stock] = req.body
+        const response = await productManager.addProduct({title, description, price, code, thumbnail, status, stock});
         res.json(response)
     }
      catch (error) {
